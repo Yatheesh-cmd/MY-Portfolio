@@ -18,6 +18,7 @@
 
         
         header {
+            height:66vh;
             /* background: linear-gradient(to right, #6a11cb, #2575fc); */
             background: linear-gradient(to right, red,black,rgb(87, 87, 157));
             color: white;
@@ -28,7 +29,8 @@
         }
         h2{
             font-size:30px;
-            text-shadow: 3px 0px 2px black;
+            font-weight: bolder;
+            text-shadow: 2px 0px 2px rgb(192, 163, 163);
         }
 
         header .profile-image {
@@ -37,7 +39,7 @@
     border-radius: 50%;
     border: 5px solid white;
     margin-bottom: 1rem;
-    object-fit: cover; /}
+    object-fit: cover; }
 
         header h1 {
             font-size: 3rem;
@@ -59,30 +61,22 @@
             box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
         }
 
-        section h2 {
-            font-size: 2rem;
-            color: #6a11cb;
-            margin-bottom: 1.5rem;
-            position: relative;
-            padding-bottom: 0.5rem;
-        }
+      .section h2{
+        font-size: 45px;
+        font-weight:bold;
+        color:brown,black;
+        text-decoration: 2px 2px 2px brown;
+      }
 
-        section h2::after {
-            content: "";
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 50px;
-            height: 3px;
-            background: #2575fc;
-        }
-
+       
+       .skills{background-color: #cad5df;}
         
         .skills ul {
             list-style: none;
             display: flex;
             flex-wrap: wrap;
             gap: 1rem;
+            
         }
 
         .skills li {
@@ -104,14 +98,18 @@
             padding: 1rem;
             border-radius: 10px;
             border-left: 5px solid #6a11cb;
+            border-top:3px inset #6a11cb;
             background: #f8f9fa;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: background 0.3s ease;
         }
+        .project:hover{transform:translateY(1px)}
 
         .projects .project h3 {
             font-size: 1.5rem;
             color: #2575fc;
         }
+        .contact{background-color:#dde7f1 ;}
 
         .contact a {
             display: inline-block;
@@ -145,7 +143,7 @@
 </head>
 <body>
     
-    <header>
+    <header class="d-flex  flex-column justify-content-center  align-items-center">
         <img src="./WhatsApp Image 2024-11-11 at 19.09.24_22e87078.jpg" alt="Yatheesh V" class="profile-image">
         <h1>Yatheesh V</h1>
         <p><i class="fas fa-code"></i> Web Developer | <i class="fab fa-react"></i> MERN Stack Enthusiast | <i class="fas fa-graduation-cap"></i> Student</p>
