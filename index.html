@@ -9,74 +9,140 @@
     <!-- Font Awesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
     <style>
-        
         body {
             font-family: 'Arial', sans-serif;
             color: #333;
-            background: linear-gradient(to right, #8e9ba7, #aea399);
+            background: linear-gradient(to right, #e0eafc, #cfdef3);
+            animation: fadeIn 1s ease-in;
+        }
+        .full {
+            padding: 20px;
         }
 
-        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
         header {
-            height:66vh;
-            /* background: linear-gradient(to right, #6a11cb, #2575fc); */
-            background: linear-gradient(to right, red,black,rgb(87, 87, 157));
+            height: auto;
+            background: linear-gradient(to right, red, black, blue);
             color: white;
             text-align: center;
-            padding: 3rem 0;
+            padding: 3rem 1rem;
             border-radius: 0 0 30px 30px;
-            box-shadow: 0 5px 15px rgb(226, 198, 198);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
         }
-        h2{
-            font-size:30px;
-            font-weight: bolder;
-            text-shadow: 2px 0px 2px rgb(192, 163, 163);
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.2), transparent);
+            animation: spin 8s linear infinite;
+        }
+
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
         }
 
         header .profile-image {
-    width: 120px;  
-    height: 120px; 
-    border-radius: 50%;
-    border: 5px solid white;
-    margin-bottom: 1rem;
-    object-fit: cover; }
+            height: 130px;
+            width: 130px;
+            border-radius: 50%;
+            border: 5px solid white;
+            margin-bottom: 12px;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        header .profile-image:hover {
+            transform: scale(1.1) rotate(360deg);
+        }
 
         header h1 {
-            font-size: 3rem;
+            font-size: 2.5rem;
             font-weight: bold;
             letter-spacing: 1.5px;
+            text-transform: uppercase;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
         }
 
         header p {
-            font-size: 1.4rem;
+            font-size: 1.2rem;
             letter-spacing: 1px;
         }
 
-        /* Section Styling */
+        .btn-container {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .btn {
+            padding: 0.8rem 1.5rem;
+            font-size: 1.2rem;
+            font-weight: bold;
+            border-radius: 30px;
+            background: linear-gradient(135deg, #43cea2, #185a9d);
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            background: linear-gradient(135deg, #185a9d, #43cea2);
+            transform: scale(1.1);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
         section {
             margin: 2rem auto;
             padding: 2rem;
             border-radius: 15px;
             background: white;
             box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+            animation: slideUp 0.5s ease-out;
         }
 
-      .section h2{
-        font-size: 45px;
-        font-weight:bold;
-        color:brown,black;
-        text-decoration: 2px 2px 2px brown;
-      }
+        @keyframes slideUp {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
 
-       
-       .skills{background-color: #cad5df;}
-        
+        .about h2, .education h2, .skills h2, .projects h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 1rem;
+            color: #6a11cb;
+        }
+
+        .education ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .education li {
+            background-color: #dceefc;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
         .skills ul {
             list-style: none;
             display: flex;
             flex-wrap: wrap;
             gap: 1rem;
-            
+            justify-content: center;
         }
 
         .skills li {
@@ -86,31 +152,20 @@
             font-weight: bold;
             color: white;
             text-transform: uppercase;
-            background: linear-gradient(to top,red,black,white);
+            background: linear-gradient(to bottom, white, black, red);
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-            transition: backgorund 0.3s ease, transform 0.4s ease;
+            transition: transform 0.4s ease;
         }
-        .skills li:hover{ transform:translateY(-5px);}
 
-    
-        .projects .project {
-            margin-bottom: 1.5rem;
-            padding: 1rem;
-            border-radius: 10px;
-            border-left: 5px solid #6a11cb;
-            border-top:3px inset #6a11cb;
-            background: #f8f9fa;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            transition: background 0.3s ease;
+        .skills li:hover {
+            transform: translateY(-10px);
         }
-        .project:hover{transform:translateY(1px)}
-
-        .projects .project h3 {
-            font-size: 1.5rem;
-            color: #2575fc;
+        
+        .contact {
+            background-color: #dde7f1;
+            padding: 2rem;
         }
-        .contact{background-color:#dde7f1 ;}
-
+        
         .contact a {
             display: inline-block;
             margin: 0.5rem;
@@ -123,13 +178,11 @@
             text-decoration: none;
             transition: background 0.3s ease, transform 0.2s ease;
         }
-
+        
         .contact a:hover {
             background: linear-gradient(135deg, #185a9d, #43cea2);
-            transform: rotate(10deg);
+            transform: scale(1.1);
         }
-
-        
         footer {
             text-align: center;
             padding: 1.5rem 0;
@@ -139,62 +192,106 @@
             border-radius: 30px 30px 0 0;
             box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.1);
         }
+
+        footer p {
+            font-size: 1rem;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        .card img {
+            width: 100%;
+            border-radius: 10px 10px 0 0;
+        }
+
+        .card .btn-primary {
+            border-radius: 20px;
+            background: linear-gradient(135deg, #ff7eb3, #ff758c);
+            border: none;
+        }
+
+        .card .btn-primary:hover {
+            background: linear-gradient(135deg, #ff758c, #ff7eb3);
+            transform: scale(1.1);
+        }
     </style>
 </head>
 <body>
-    
-    <header class="d-flex  flex-column justify-content-center  align-items-center">
+
+    <header class="d-flex flex-column justify-content-center align-items-center">
         <img src="./WhatsApp Image 2024-11-11 at 19.09.24_22e87078.jpg" alt="Yatheesh V" class="profile-image">
-        <h1>Yatheesh V</h1>
+        <h1>I'm Yatheesh V</h1>
         <p><i class="fas fa-code"></i> Web Developer | <i class="fab fa-react"></i> MERN Stack Enthusiast | <i class="fas fa-graduation-cap"></i> Student</p>
+        <div class="btn-container">
+            <a href="./cv.pdf" class="btn">Download CV</a>
+            <a href="#contact" class="btn">Contact Me</a>
+        </div>
     </header>
 
-    
-    <section class="about">
-        <h2>About Me</h2>
-        <p style="text-align: justify;">
-            I am an aspiring Full Stack Developer | Software Engineer currently learning the MERN stack (MongoDB, Express.js, React.js, Node.js) at Luminar. With a strong foundation in HTML, CSS, and JavaScript, I am passionate about creating dynamic, user-friendly web applications. I am eager to apply my skills and grow through meaningful projects and collaborations.
-        </p>
+    <section class="full">
+        <section class="about" style="text-align: justify;">
+            <h2>About Me</h2>
+            <p>I am an aspiring Web Developer with expertise in the MERN stack (MongoDB, Express.js, React.js, Node.js). Having recently completed my training at Luminar Technolab, I am excited to further my skills and build dynamic, user-friendly web applications. I am passionate about learning new technologies, solving problems, and contributing to innovative projects in the tech industry.
+
+            </p>
+        </section>
+
+        <section class="education">
+            <h2>Education</h2>
+            <ul>
+                <li>MERN Stack Course, Luminar TechnoLab (2025)</li>
+                <li>BSc in Computer Science, Kannur University (2021-2024)</li>
+                <li>Higher Secondary Education, Kerala State Board (2019-2021)</li>
+            </ul>
+        </section>
+
+        <section class="skills">
+            <h2>Skills</h2>
+            <ul>
+                <li><i class="fab fa-html5"></i> HTML</li>
+                <li><i class="fab fa-css3-alt"></i> CSS</li>
+                <li><i class="fab fa-bootstrap"></i> Bootstrap</li>
+                <li><i class="fab fa-js"></i> JavaScript</li>
+                <li><i class="fab fa-react"></i> React</li>
+                <li><i class="fab fa-node"></i> Node.js</li>
+            </ul>
+        </section>
+
+        <section class="projects">
+            <h2>Projects</h2>
+            <div class="container">
+                <div class="row row-cols-1 row-cols-md-2 g-4">
+                    <div class="col">
+                        <div class="card h-100">
+                            <img src="project1.jpg" alt="YTravel">
+                            <div class="card-body">
+                                <h5 class="card-title">YTravel</h5>
+                                <p class="card-text">A travel-based eCommerce website with advanced filtering and booking features.</p>
+                                <a href="#" class="btn btn-primary">Visit</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card h-100">
+                            <img src="project2.jpg" alt="Calculator">
+                            <div class="card-body">
+                                <h5 class="card-title">Calculator</h5>
+                                <p class="card-text">A simple yet intuitive calculator application built with modern UI design.</p>
+                                <a href="#" class="btn btn-primary">Visit</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </section>
 
-    <section class="skills">
-        <h2>Skills</h2>
-        <ul>
-            <li><i class="fab fa-html5"></i> HTML</li>
-            <li><i class="fab fa-css3-alt"></i> CSS</li>
-            <li><i class="fab fa-js"></i> JavaScript</li>
-            <li><i class="fab fa-react"></i> React</li>
-            <li><i class="fab fa-node"></i> Node.js</li>
-            <li><i class="fas fa-server"></i> Express</li>
-        </ul>
-    </section>
-
-    
-    <section class="projects">
-        <h2>Projects</h2>
-        <div class="project">
-            <h3><i class="fas fa-project-diagram"></i> Facebook Form Page</h3>
-            <p>A Facebook-style form page showcasing my frontend development skills.</p>
-        </div>
-        <div class="project">
-            <h3><i class="fas fa-project-diagram"></i> Registration Form</h3>
-            <p>Registartion  form page showcasing my frontend development skills.</p>
-        </div>
-        <div class="project">
-            <h3><i class="fas fa-project-diagram"></i> Bootstrap pages</h3>
-            <p>create Responsive webpages using  css bootstrap framework</p>
-        </div>
-    </section>
-
-    
-    <section class="contact text-center">
+    <section id="contact" class="contact text-center">
         <h2>Contact Me</h2>
-        <a href="mailto:youremail@example.com"><i class="fas fa-envelope"></i> Email Me</a>
-        <a href="https://www.linkedin.com/in/yourprofile" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
-        <a href="https://github.com/yourgithub" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+        <a href="mailto:yatheeshvv@gmail.com"><i class="fas fa-envelope"></i> Email Me</a>
+        <a href="https://www.linkedin.com/in/yatheesh-v" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+        <a href="https://github.com/Yatheesh-cmd" target="_blank"><i class="fab fa-github"></i> GitHub</a>
     </section>
 
-    
     <footer>
         <p>© 2024 Yatheesh V. All rights reserved.</p>
     </footer>
