@@ -19,7 +19,7 @@ body {
     }
 }
 
-header {
+/* header {
     height: auto;
     background: linear-gradient(to right, red, black, blue);
     color: rgb(255, 255, 255);
@@ -29,8 +29,19 @@ header {
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.489);
     position: relative;
     overflow: hidden;
-}
+} */
 
+header {
+    height: auto;
+    background: linear-gradient(to right, red,blue,black); /* Updated gradient colors */
+    color: white;
+    text-align: center;
+    padding: 4rem 1rem;
+    border-radius: 0 0 30px 30px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    position: relative;
+    overflow: hidden;
+}
 header::before {
     content: '';
     position: absolute;
@@ -38,7 +49,7 @@ header::before {
     left: -50%;
     width: 200%;
     height: 200%;
-    background: radial-gradient(circle, rgba(110, 106, 106, 0.188), transparent);
+    background: radial-gradient(circle, rgba(0, 0, 0, 0.084), transparent);
     animation: spin 8s linear infinite;
 }
 
@@ -118,11 +129,13 @@ section {
 }
 
 .education ul {
+   
     list-style: none;
     padding: 0;
 }
 
 .education li {
+    
     background-color: #dceefc;
     padding: 1rem;
     margin-bottom: 1rem;
@@ -133,8 +146,10 @@ section {
 .skills ul {
     list-style: none;
     display: flex;
+    flex-direction:row;
     flex-wrap: wrap;
-    gap: 1rem;
+    gap: 1.5rem;
+    align-items: center;
     justify-content: center;
 }
 
@@ -157,10 +172,12 @@ section {
 .contact1 {
     background-color: #dde7f1;
     padding: 2rem;
+    height:30vh;
 }
 
 .contact1 a {
     display: inline-block;
+    margin-top:30px;
     margin: 0.5rem;
     padding: 0.8rem 1.5rem;
     font-size: 1rem;
