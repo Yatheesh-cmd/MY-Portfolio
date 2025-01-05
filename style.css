@@ -71,7 +71,7 @@ header h1 {
     font-weight: bold;
     letter-spacing: 1.5px;
     text-transform: uppercase;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    text-shadow: 2px 6px 5px rgba(0, 0, 0, 0.3);
 }
 
 header p {
@@ -95,7 +95,7 @@ section {
     animation: slideUp 0.5s ease-out;
 }
 
-@keyframes slideUp {
+/* @keyframes slideUp {
     from {
         transform: translateY(20px);
         opacity: 0;
@@ -105,7 +105,7 @@ section {
         transform: translateY(0);
         opacity: 1;
     }
-}
+} */
 
 .about h2,
 .education h2,
