@@ -1,7 +1,7 @@
 body {
     font-family: 'Arial', sans-serif;
     color: #333;
-    background: linear-gradient(to right, #e0eafc, #cfdef3);
+    background: linear-gradient(to right, gray,gray);
     animation: fadeIn 1s ease-in;
 }
 
@@ -33,12 +33,12 @@ body {
 
 header {
     height: auto;
-    background: linear-gradient(to right, red,blue,black); /* Updated gradient colors */
+    background: linear-gradient(to right, red,rgb(0, 0, 0),blue); /* Updated gradient colors */
     color: white;
     text-align: center;
     padding: 4rem 1rem;
     border-radius: 0 0 30px 30px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.753);
     position: relative;
     overflow: hidden;
 }
@@ -49,7 +49,7 @@ header::before {
     left: -50%;
     width: 200%;
     height: 200%;
-    background: radial-gradient(circle, rgba(0, 0, 0, 0.084), transparent);
+    background: radial-gradient(circle, rgba(27, 26, 26, 0.119), transparent);
     animation: spin 8s linear infinite;
 }
 
@@ -84,6 +84,41 @@ header h1 {
     text-transform: uppercase;
     text-shadow: 2px 6px 5px rgba(0, 0, 0, 0.3);
 }
+@keyframes typing {
+    from {
+        width: 0;
+    }
+
+    to {
+        width: 100%;
+    }
+}
+@keyframes blink {
+    50% {
+        border-color: transparent;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+
+header h3 {
+    font-size: 1.5rem;
+    margin-top: 1rem;
+    white-space: nowrap;
+    overflow: hidden;
+    display: inline-block;
+    border-right: 2px inset #fff;
+    animation: typing 4s steps(40, end), blink 1s step-end infinite;
+}
 
 header p {
     font-size: 1.2rem;
@@ -99,13 +134,24 @@ header p {
 
 section {
     margin: 2rem auto;
-    padding: 2rem;
+    padding: 5rem 2rem; 
     border-radius: 15px;
     background: white;
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
     animation: slideUp 0.5s ease-out;
 }
 
+@keyframes slideUp {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
 /* @keyframes slideUp {
     from {
         transform: translateY(20px);
@@ -150,6 +196,10 @@ section {
     margin-bottom: 1rem;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: background 0.4s ease, transform 0.4s ease;
+}
+.education li:hover{
+    transform: translateY(-4px);
 }
 
 .skills ul {
@@ -176,6 +226,10 @@ section {
 
 .skills li:hover {
     transform: translateY(-10px);
+}
+.projects{
+    padding:5rem 2rem;
+
 }
 
 .contact1 {
@@ -206,7 +260,7 @@ section {
 
 footer {
     text-align: center;
-    padding: 1.5rem 0;
+    padding: 2.5rem 0;
     background: linear-gradient(to left, #9cb6b8,rgb(49, 49, 68), #6984bd);
     color: white;
     margin-top: 2rem;
